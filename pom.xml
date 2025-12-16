@@ -36,6 +36,13 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-bom</artifactId>
+        <version>${cucumber.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -64,38 +71,34 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- Cucumber core -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- Cucumber JUnit 5 integration -->
     <dependency>
       <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit-platform-engine</artifactId>
-      <version>${cucumber.version}</version>
+      <artifactId>cucumber-testng</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <!-- Cucumber Spring integration -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-spring</artifactId>
-      <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- Spring Boot test starter (includes JUnit 5) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
-    <!-- Optional: Assertions -->
+
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
