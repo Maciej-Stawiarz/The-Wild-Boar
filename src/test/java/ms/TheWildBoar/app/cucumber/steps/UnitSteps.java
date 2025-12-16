@@ -1,4 +1,4 @@
-package ms.TheWildBoar.app.cucumber.step;
+package ms.TheWildBoar.app.cucumber.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

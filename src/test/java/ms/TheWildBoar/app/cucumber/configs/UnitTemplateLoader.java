@@ -1,21 +1,23 @@
-package ms.TheWildBoar.app.cucumber.config;
+package ms.TheWildBoar.app.cucumber.configs;
 
-import jakarta.annotation.PostConstruct;
 import ms.TheWildBoar.app.model.config.UnitTemplateEntry;
 import ms.TheWildBoar.app.model.unit.UnitTemplate;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AssignableTypeFilter;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-@Component
-public class UnitTemplateLoader {
+public final class UnitTemplateLoader {
 	
-	@PostConstruct
-	public void loadTemplatesOnStartup() throws Exception {
+	private static boolean templatesLoaded = false;
+	
+	public static void loadTemplates() throws Exception {
+		if (templatesLoaded) {
+			return;
+		}
+		
 		String rootPackage = "ms.TheWildBoar.app.model.unit";
 		
 		ClassPathScanningCandidateComponentProvider scanner =
@@ -30,10 +32,11 @@ public class UnitTemplateLoader {
 			}
 			registerStaticTemplates(clazz);
 		}
+		
+		templatesLoaded = true;
 	}
 	
-	
-	private void registerStaticTemplates(Class<?> clazz) throws Exception {
+	private static void registerStaticTemplates(Class<?> clazz) throws Exception {
 		for (Field field : clazz.getDeclaredFields()) {
 			if (field.isAnnotationPresent(UnitTemplateEntry.class) &&
 					Modifier.isStatic(field.getModifiers()) &&

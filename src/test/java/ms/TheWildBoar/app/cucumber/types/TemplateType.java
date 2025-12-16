@@ -1,8 +1,8 @@
-package ms.TheWildBoar.app.cucumber.type;
+package ms.TheWildBoar.app.cucumber.types;
 
 import io.cucumber.java.ParameterType;
 import ms.TheWildBoar.app.model.unit.UnitTemplate;
-import ms.TheWildBoar.app.cucumber.config.UnitTemplateRegistry;
+import ms.TheWildBoar.app.cucumber.configs.UnitTemplateRegistry;
 
 public class TemplateType {
 	

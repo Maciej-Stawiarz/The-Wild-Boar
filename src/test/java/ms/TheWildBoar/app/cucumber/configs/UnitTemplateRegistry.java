@@ -1,9 +1,8 @@
-package ms.TheWildBoar.app.cucumber.config;
+package ms.TheWildBoar.app.cucumber.configs;
 
 import ms.TheWildBoar.app.model.unit.UnitTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -20,9 +19,5 @@ public final class UnitTemplateRegistry {
 	
 	public static void register(String key, UnitTemplate template) {
 		unitTemplateRegistry.put(key, template);
-	}
-	
-	public static Map<String, UnitTemplate> getAll() {
-		return Collections.unmodifiableMap(unitTemplateRegistry);
 	}
 }

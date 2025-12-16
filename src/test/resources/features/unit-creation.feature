@@ -9,15 +9,15 @@ Feature: Unit creation through UnitFactory and UnitTemplates
     Then Base unit should be created
     And it's values match those of the template
     Examples:
-      | template          |  |
-      | Zombie            |  |
-      | FragileSkeleton   |  |
-      | WeakSkeleton      |  |
-      | Skeleton          |  |
-      | StrongSkeleton    |  |
-      | DangerousSkeleton |  |
-      | Lich              |  |
-      | WhiteRabbit       |  |
-      | Cow               |  |
-      | WhiteRabbit       |  |
-      | Wolf              |  |
+      | template          |
+      | Zombie            |
+      | FragileSkeleton   |
+      | WeakSkeleton      |
+      | Skeleton          |
+      | StrongSkeleton    |
+      | DangerousSkeleton |
+      | Lich              |
+      | WhiteRabbit       |
+      | Cow               |
+      | WhiteRabbit       |
+      | Wolf              |
